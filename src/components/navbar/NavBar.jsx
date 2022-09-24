@@ -22,7 +22,7 @@ const NavBar = () => {
 				</div>
 				<div className="navbar__user-actions">
 					<button className="navbar__cart-btn">
-						<CartIcon fill="#2196f3" height={32} />
+						<CartIcon fill="#2196f3" height={29} />
 					</button>
 					<button className="navbar__login-btn">Ingresar</button>
 				</div>
