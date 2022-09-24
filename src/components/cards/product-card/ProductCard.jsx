@@ -1,4 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
+import SquareButton from "../../buttons/square-button/SquareButton"
+import { ReactComponent as PlusIcon } from "../../../assets/svg/plus.svg"
+import { ReactComponent as MinusIcon } from "../../../assets/svg/minus.svg"
 import "./ProductCard.css"
 
 const ProductCard = ({
@@ -10,6 +13,13 @@ const ProductCard = ({
 	promo = [],
 	price,
 }) => {
+	const [quantity, setQuantity] = useState(0)
+	const handleAdd = () => {
+		setQuantity(quantity + 1)
+	}
+	const handleSub = () => {
+		if (quantity !== 0) setQuantity(quantity - 1)
+	}
 	return (
 		<div className="product-card">
 			<img src={imgUrl} className="product-card__img" alt={title} />
@@ -31,6 +41,16 @@ const ProductCard = ({
 				<p className="product-card__price">
 					${sale ? price - Math.floor((price * sale) / 100) : price}
 				</p>
+				<div className="product-card__btn-ctn">
+					<SquareButton onClick={handleSub} size={40} color="#dbdbdb">
+						<MinusIcon width={18} fill="#333" />
+					</SquareButton>
+					<p className="product-card__quantity">{quantity}</p>
+					<SquareButton onClick={handleAdd} size={40} color="#c5c5c5">
+						<PlusIcon width={18} fill="#333" />
+					</SquareButton>
+				</div>
+				<button className="product-card__add-to-cart">Agregar</button>
 			</div>
 		</div>
 	)
