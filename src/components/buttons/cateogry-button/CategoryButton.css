@@ -4,14 +4,16 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 100px;
-  height: 110px;
+  min-width: 100px;
+  min-height: 110px;
   background-color: #e8f4fe;
   border-radius: 10px;
   color: #3f59e7;
   border: none;
 }
-
+.category-button:hover{
+  transform: scale(1.05);
+}
 .category-button > p {
   padding: 0 5px;
   text-align: center;
