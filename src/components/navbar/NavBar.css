@@ -49,6 +49,8 @@
   border: none;
 }
 .navbar__cart-btn{
+  display: grid;
+  place-content: center;
   background-color: transparent;
 }
 .navbar__login-btn{
