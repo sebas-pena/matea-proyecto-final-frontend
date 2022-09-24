@@ -5,12 +5,25 @@
 .slider__display{
   width: 100%;
 }
+
+
+
+
 .slider__back,
 .slider__forward{
+  opacity: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  transition: opacity .3s ease-in-out;
+}
+.slider__back{
+  left: 10px;
 }
 .slider__forward{
-  right: 0;
+  right: 10px;
+}
+.slider:hover .slider__back,
+.slider:hover .slider__forward{
+  opacity: 1;
 }
