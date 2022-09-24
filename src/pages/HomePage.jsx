@@ -52,6 +52,16 @@ const products = [
 		imgUrl:
 			"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
 	},
+	{
+		title: "Vermouth Blanco Martini 1 L",
+		brand: "Martini",
+		price: 369,
+		currency: "$",
+		sale: null,
+		promo: [],
+		imgUrl:
+			"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
+	},
 ]
 
 const HomePage = () => {
@@ -61,8 +71,8 @@ const HomePage = () => {
 			<CategoryList />
 			<h2>Ofertas</h2>
 			<List>
-				{products.map((product) => (
-					<ProductCard {...product} />
+				{products.map((product, i) => (
+					<ProductCard key={i} {...product} />
 				))}
 			</List>
 		</>
