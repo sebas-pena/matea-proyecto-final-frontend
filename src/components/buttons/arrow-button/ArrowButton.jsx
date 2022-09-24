@@ -32,7 +32,6 @@ const ArrowButton = ({
 		height: sizes[size],
 	}
 
-	console.log(buttonStyle)
 	return (
 		<button className="arrow-button" style={buttonStyle} onClick={onClick}>
 			<Arrow fill={color} height={arrowWidth[size]} />
