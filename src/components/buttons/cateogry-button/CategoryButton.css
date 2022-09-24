@@ -1,0 +1,19 @@
+.category-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100px;
+  height: 110px;
+  background-color: #e8f4fe;
+  border-radius: 10px;
+  color: #3f59e7;
+  border: none;
+}
+
+.category-button > p {
+  padding: 0 5px;
+  text-align: center;
+  font-size: 14px;
+}

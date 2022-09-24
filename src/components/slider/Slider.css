@@ -1,0 +1,16 @@
+.slider{
+  position: relative;
+  width: 100%;
+}
+.slider__display{
+  width: 100%;
+}
+.slider__back,
+.slider__forward{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider__forward{
+  right: 0;
+}

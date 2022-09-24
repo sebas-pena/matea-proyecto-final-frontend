@@ -1,0 +1,22 @@
+.list{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.list__ctn{
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.list > button {
+  opacity: 0;
+}
+
+.list:hover > button {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+.arrow-button{
+  display: grid;
+  place-content: center;
+  border: none;
+  border-radius: 1000px;
+  background-color: #03a9f4;
+  transition: all .3s ease-in-out;
+}
+
+.arrow-button:hover{
+  background-color: #03a9f4;
+}
+
