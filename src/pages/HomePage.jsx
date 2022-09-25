@@ -69,8 +69,7 @@ const HomePage = () => {
 		<>
 			<Slider />
 			<CategoryList />
-			<h2>Ofertas</h2>
-			<List>
+			<List title="Ofertas">
 				{products.map((product, i) => (
 					<ProductCard key={i} {...product} />
 				))}
