@@ -10,6 +10,8 @@
 
 .product-card__img{
   width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 .product-card__promotions{
