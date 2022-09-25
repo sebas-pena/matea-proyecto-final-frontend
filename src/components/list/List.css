@@ -1,3 +1,9 @@
+.list__title{
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
 .list{
   display: flex;
   align-items: center;
