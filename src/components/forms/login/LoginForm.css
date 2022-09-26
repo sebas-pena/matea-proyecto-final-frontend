@@ -1,0 +1,25 @@
+.login-form__ctn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.login-form__form{
+  display: flex;
+  flex-direction: column;
+}
+.login-form__title{
+  margin-bottom: 20px;
+}
+.login-form__recovery{
+  margin: 10px 0 ;
+  margin-bottom: 20px;
+  text-align: right;
+}
+.login-form__change-form > span {
+  margin-right: 5px;
+}
