@@ -1,0 +1,9 @@
+.banner{
+  display: flex;
+  gap: 10px;
+}
+
+.banner > img {
+  flex: 1;
+  width: 0;
+}
