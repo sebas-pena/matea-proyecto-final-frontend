@@ -86,13 +86,3 @@
   place-content: center;
   line-height: 1;
 }
-
-.product-card__add-to-cart{
-  width: 100%;
-  height: 30px;
-  border: none;
-  background-color: #e91e63;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 4px;
-}

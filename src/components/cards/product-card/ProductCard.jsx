@@ -3,6 +3,7 @@ import SquareButton from "../../buttons/square-button/SquareButton"
 import { ReactComponent as PlusIcon } from "../../../assets/svg/plus.svg"
 import { ReactComponent as MinusIcon } from "../../../assets/svg/minus.svg"
 import "./ProductCard.css"
+import SimpleButton from "../../buttons/simple-button/SimpleButton"
 
 const ProductCard = ({
 	id,
@@ -43,14 +44,16 @@ const ProductCard = ({
 				</p>
 				<div className="product-card__btn-ctn">
 					<SquareButton onClick={handleSub} size={40} color="#dbdbdb">
-						<MinusIcon width={18} fill="#333" />
+						<MinusIcon width={18} fill="#888" />
 					</SquareButton>
 					<p className="product-card__quantity">{quantity}</p>
 					<SquareButton onClick={handleAdd} size={40} color="#c5c5c5">
-						<PlusIcon width={18} fill="#333" />
+						<PlusIcon width={18} fill="#fff" />
 					</SquareButton>
 				</div>
-				<button className="product-card__add-to-cart">Agregar</button>
+				<SimpleButton background="danger" height={30}>
+					Agregar
+				</SimpleButton>
 			</div>
 		</div>
 	)
