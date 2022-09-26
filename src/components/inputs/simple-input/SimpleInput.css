@@ -1,0 +1,26 @@
+.simple-input{
+  border-style: solid;
+  border-width: 0;
+  transition: all .3s ease-in-out;
+}
+
+.simple-input.borders-all{
+  border-width: 1px;
+}
+
+.simple-input.borders-bottom{
+  border-bottom-width: 1px;
+}
+
+.simple-input.borders-left{
+  border-left-width: 1px;
+}
+
+.simple-input.focus-primary:focus{
+  outline: none;
+  border-color: blue !important;
+}
+.simple-input.focus-dark-gray:focus{
+  outline: none;
+  border-color: #9c9999 !important;
+}
