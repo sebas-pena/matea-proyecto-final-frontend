@@ -1,7 +1,10 @@
 import React from "react"
+import Banner from "../components/banner/Banner"
 import ProductCard from "../components/cards/product-card/ProductCard"
 import CategoryList from "../components/CategoryList"
+import Footer from "../components/footer/Footer"
 import List from "../components/list/List"
+import NavBar from "../components/navbar/NavBar"
 import Slider from "../components/slider/Slider"
 
 // MOCK
@@ -67,13 +70,49 @@ const products = [
 const HomePage = () => {
 	return (
 		<>
-			<Slider />
-			<CategoryList />
-			<List title="Ofertas">
-				{products.map((product, i) => (
-					<ProductCard key={i} {...product} />
-				))}
-			</List>
+			<NavBar />
+			<div className="app__page-ctn">
+				<Slider />
+				<CategoryList />
+				<Banner>
+					<img
+						src="https://static-ti-vm1.tiendainglesa.com.uy/imagenes/Banners/Banner4666_177401ec-3199-437b-87d0-522012d7f710.jpeg"
+						alt="banner-1"
+					/>
+					<img
+						src="https://static-ti-vm1.tiendainglesa.com.uy/imagenes/Banners/Banner4666_177401ec-3199-437b-87d0-522012d7f710.jpeg"
+						alt="banner-2"
+					/>
+				</Banner>
+				<List title="Ofertas">
+					{products.map((product, i) => (
+						<ProductCard key={i} {...product} />
+					))}
+				</List>
+				<Banner>
+					<img
+						src="https://tatauy.vteximg.com.br/arquivos/ids/519314/BombazosSep-1240x200-BebidasHome_.png?v=637992102984000000"
+						alt="2x1"
+					/>
+				</Banner>
+				<List title="Bebidas">
+					{products.map((product, i) => (
+						<ProductCard key={i} {...product} />
+					))}
+				</List>
+				<Banner>
+					<img
+						src="https://tatauy.vteximg.com.br/arquivos/ids/304214/Banner-Oportunidad-Hoy-22-02-2022-1240x200.png?v=637811497968830000"
+						alt="2x1"
+					/>
+				</Banner>
+				<List title="Helados">
+					{products.map((product, i) => (
+						<ProductCard key={i} {...product} />
+					))}
+				</List>
+			</div>
+			<Footer />
 		</>
 	)
 }
