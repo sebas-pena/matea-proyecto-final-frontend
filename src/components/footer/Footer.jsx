@@ -9,18 +9,27 @@ const Footer = () => {
 					<section className="footer__info">
 						<h3>Super Ecónomico</h3>
 						<img src={logo} alt="Logotipo de super ecónomico" />
-						<p>
+						<a href="https://goo.gl/maps/XHuoYWx8F8hzyMi78">
 							Direccion: Alberto Caracara esquina Juan de Dios Comandante -
 							Maldonado . Uruguay
-						</p>
+						</a>
 						<a href="tel:42242817">Tels.: 4224 2817</a>
 					</section>
-					<section className="footer__subscribe">
+					<section>
 						<h3>Subscribete</h3>
-						<p>Recibe actualizaciónes</p>
+						<p>Para recibe nuestras ofertas y novedades.</p>
+						<form className="footer__subscribe-form">
+							<input placeholder="Ingresa tu email" />
+							<button>Enviar</button>
+						</form>
 					</section>
-					<section className="footer__social-media">
+					<section>
 						<h3>Encuentranos en</h3>
+						<div className="footter__social-media">
+							<a>
+								<img src="" />
+							</a>
+						</div>
 					</section>
 				</div>
 				<p className="footer_copy-right">© 2022 Desarrollado por El Cangrejo</p>
