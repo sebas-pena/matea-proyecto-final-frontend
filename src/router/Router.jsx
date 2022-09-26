@@ -1,13 +1,10 @@
 import React from "react"
-import { Route, Routes } from "react-router-dom"
-import HomePage from "../pages/HomePage"
+import PrivateRoutes from "./PrivateRoutes"
+import PublicRoutes from "./PublicRoutes"
 
 const Router = () => {
-	return (
-		<Routes>
-			<Route index element={<HomePage />} />
-		</Routes>
-	)
+	const isLogged = true
+	return isLogged ? <PublicRoutes /> : <PrivateRoutes />
 }
 
 export default Router
