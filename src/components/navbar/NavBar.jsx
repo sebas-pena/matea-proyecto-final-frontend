@@ -2,9 +2,12 @@ import React from "react"
 import { ReactComponent as CartIcon } from "../../assets/svg/shopping-cart.svg"
 import Logo from "../../assets/img/logo.png"
 import "./NavBar.css"
+import { useNavigate } from "react-router-dom"
+import SimpleButton from "../buttons/simple-button/SimpleButton"
 
 const NavBar = () => {
-	const handleLogin = () => {}
+	const navigate = useNavigate()
+
 	return (
 		<nav className="navbar">
 			<div className="navbar__ctn">
@@ -12,6 +15,9 @@ const NavBar = () => {
 					className="navbar__img"
 					src={Logo}
 					alt="Logotipo de Super Ecónomico"
+					onClick={() => {
+						navigate("/")
+					}}
 				/>
 				<div className="navbar__search-ctn">
 					<input
@@ -21,10 +27,12 @@ const NavBar = () => {
 					/>
 				</div>
 				<div className="navbar__user-actions">
-					<button className="navbar__cart-btn">
+					<SimpleButton background="transparent" height={35} paddingX="10">
 						<CartIcon fill="#2196f3" height={29} />
-					</button>
-					<button className="navbar__login-btn">Ingresar</button>
+					</SimpleButton>
+					<SimpleButton asLink to="/login" height={35} paddingX={15}>
+						Ingresar
+					</SimpleButton>
 				</div>
 			</div>
 		</nav>

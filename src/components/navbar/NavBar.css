@@ -43,25 +43,3 @@
 .navbar__search-input::placeholder{
   padding-left: 2px;
 }
-.navbar__cart-btn,
-.navbar__login-btn{
-  height: 34px;
-  border: none;
-}
-.navbar__cart-btn{
-  display: grid;
-  place-content: center;
-  background-color: transparent;
-}
-.navbar__login-btn{
-  padding: 0 20px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 5px;
-  background-color: #2196f3;
-  transition: background .3s ease-in-out;
-}
-.navbar__login-btn:hover{
-  background-color: #2C53A0;
-}
