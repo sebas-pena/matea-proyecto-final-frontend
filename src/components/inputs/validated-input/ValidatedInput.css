@@ -1,0 +1,11 @@
+.validated-input{
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.validated-input__error{
+  position: absolute;
+  bottom: 2px;
+  font-size: 14px;
+  color: red;
+}
