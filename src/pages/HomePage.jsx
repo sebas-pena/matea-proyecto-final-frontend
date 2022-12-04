@@ -6,6 +6,7 @@ import Footer from "../components/footer/Footer"
 import List from "../components/list/List"
 import NavBar from "../components/navbar/NavBar"
 import Slider from "../components/slider/Slider"
+import Wrapper from "../components/Wrapper"
 
 // MOCK
 
@@ -71,7 +72,14 @@ const HomePage = () => {
 	return (
 		<>
 			<NavBar />
-			<div className="app__page-ctn">
+			<Wrapper
+				vertical
+				grow={1}
+				width="100%"
+				maxWidth={1100}
+				margin="auto"
+				gap="30px"
+			>
 				<Slider />
 				<CategoryList />
 				<Banner>
@@ -111,7 +119,7 @@ const HomePage = () => {
 						<ProductCard key={i} {...product} />
 					))}
 				</List>
-			</div>
+			</Wrapper>
 			<Footer />
 		</>
 	)

@@ -43,11 +43,11 @@ const LoginForm = () => {
 				</SimpleLink>
 			</div>
 			<div className="login-form__change-form">
-				<span>¿Aún no eres miembro?</span>
-				<SimpleLink to="/sing-in" fontSize={15}>
-					Registrarme
-				</SimpleLink>
+				<span>O</span>
 			</div>
+			<SimpleButton asLink to="/sing-in" height={35}>
+				Registrarme
+			</SimpleButton>
 		</div>
 	)
 }

@@ -6,11 +6,10 @@ const LoginPage = () => {
 		<div
 			className="app__page-ctn"
 			style={{
-				justifyContent: "center",
+				paddingTop: 20,
 				alignItems: "center",
 				maxWidth: "unset",
 				width: "100%",
-				backgroundColor: "#e5e6ff",
 				gap: 20,
 			}}
 		>

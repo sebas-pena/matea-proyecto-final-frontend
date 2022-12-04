@@ -1,0 +1,25 @@
+.image-display__ctn{
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.image-display__focus{
+  width: 100%;
+}
+
+.image-display__gallery{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.image-display__gallery > img {
+  width: 80px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  border: 1px solid #c1c1c1;
+  cursor: pointer;
+}
+.image-display__gallery > img.focus {
+  border-color: blue;
+}

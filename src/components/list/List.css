@@ -16,7 +16,6 @@
   display: flex;
   gap: 30px;
   width: 100%;
-  overflow: hidden;
 }
 
 .list > button {
