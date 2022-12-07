@@ -5,13 +5,14 @@ import LoginPage from "../pages/LoginPage"
 import ProductPage from "../pages/ProductPage"
 
 const PublicRoutes = () => {
-	return (
-		<Routes>
-			<Route index element={<HomePage />} />
-			<Route path="login" element={<LoginPage />} />
-			<Route path="product" element={<ProductPage />} />
-		</Routes>
-	)
+  return (
+    <Routes>
+      <Route index element={<HomePage />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="product/:id" element={<ProductPage />} />
+      <Route path="category/:id" element={<ProductPage />} />
+    </Routes>
+  )
 }
 
 export default PublicRoutes

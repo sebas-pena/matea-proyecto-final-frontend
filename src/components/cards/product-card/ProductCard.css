@@ -1,11 +1,14 @@
 .product-card{
   position: relative;
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
-  width: 180px;
+  width: 230px;
   border: 1px solid #ededed;
   border-radius: 10px;
   overflow: hidden;
+  color:#333;
+  text-decoration: none;
 }
 
 .product-card__img{
