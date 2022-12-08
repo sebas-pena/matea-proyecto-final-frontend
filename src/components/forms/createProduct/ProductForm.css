@@ -1,13 +1,4 @@
-.login-form__ctn{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #fff;
-}
+
 .login-form__form{
   display: flex;
   flex-direction: column;
@@ -56,9 +47,6 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: #080710;
-}
 
 .background{
     width: 430px;
@@ -108,6 +96,7 @@ body{
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
+    background-color: #080710;
 }
 
 .Form-Login *{
@@ -175,4 +164,7 @@ body{
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+}
+.Boton-register{
+  background-color: #080710;
 }
