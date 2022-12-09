@@ -5,6 +5,7 @@ import SingIn from "../pages/SingInPage"
 import LoginPage from "../pages/LoginPage"
 import ProductPage from "../pages/ProductPage"
 import CreateProductsPage from "../pages/CreateProductsPage"
+import SearchPage from "../pages/search/SearchPage"
 
 const PublicRoutes = () => {
   return (
@@ -14,7 +15,8 @@ const PublicRoutes = () => {
       <Route path="sing-in" element={<SingIn />} />
       <Route path="product/:id" element={<ProductPage />} />
       <Route path="category/:id" element={<ProductPage />} />
-      <Route path="crear" element={<CreateProductsPage />} />
+      <Route path="create-product" element={<CreateProductsPage />} />
+      <Route path="search" element={<SearchPage />} />
     </Routes>
   )
 }

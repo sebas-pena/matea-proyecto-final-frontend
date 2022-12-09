@@ -1,20 +1,12 @@
-.login-form__ctn{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #fff;
-}
 .login-form__form{
   display: flex;
   flex-direction: column;
 }
 .login-form__title{
+  position: relative;
+  z-index: 100;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .login-form__recovery{
   margin: 10px 0 ;
@@ -30,7 +22,7 @@
 
 .login-form__change-form > span{
   padding: 0 20px;
-  background-color: #fff;
+  background-color: #080710;
 }
 .login-form__change-form > span::before{
   position: absolute;
@@ -42,6 +34,7 @@
   width: 100%;
   background-color: #b3b3b3;
 }
+
 
 
 
@@ -96,7 +89,6 @@ body{
 }
 
 .Form-Login{
-    height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -132,19 +124,16 @@ body{
     font-weight: 500;
 }
 
-.Input{
+.login-form__input{
     display: block;
     height: 50px;
     width: 100%;
     background-color: rgba(255,255,255,0.07);
     border-radius: 3px;
     padding: 0 10px;
-    margin-top: 8px;
+    margin: 8px 0 20px 0;
     font-size: 14px;
     font-weight: 300;
-}
-::placeholder{
-    color: #e5e5e5;
 }
 
 .BotonI{

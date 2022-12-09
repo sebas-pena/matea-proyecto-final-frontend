@@ -1,8 +1,8 @@
 .navbar{
   width: 100%;
   padding: 11px 0;
-  border-top: 5px solid #ffeb3b;
-  border-bottom: 5px solid #ffeb3b;
+  border-top: 5px solid #004795;
+  border-bottom: 5px solid #004795;
 }
 .navbar__ctn{
   display: flex;
@@ -12,11 +12,9 @@
   margin: auto;
 }
 
-
 .navbar__search-ctn{
   flex: 1;
 }
-
 
 .navbar__img{
   height: 40px;
@@ -35,8 +33,12 @@
   padding: 0 18px;
   border: none;
   border-radius: 15px;
-  background-color: #ededed;
+  background-color: #f8f8f8;
 }
+.navbar__search-input::placeholder{
+  color: #99999b;
+}
+
 .navbar__search-input:focus{
   outline: none;
 }

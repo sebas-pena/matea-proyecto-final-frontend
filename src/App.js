@@ -1,7 +1,7 @@
-import { BrowserRouter } from 'react-router-dom';
-import Router from './router/Router';
-import './App.css';
-import { StoreProvider } from './store/StoreProvider';
+import { BrowserRouter } from "react-router-dom"
+import Router from "./router/Router"
+import "./App.css"
+import { StoreProvider } from "./store/StoreProvider"
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Router />
       </BrowserRouter>
     </StoreProvider>
-  );
+  )
 }
 
-export default App;
+export default App

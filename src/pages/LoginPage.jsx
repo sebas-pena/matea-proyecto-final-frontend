@@ -1,31 +1,22 @@
 import React from "react"
-import logo from "../assets/img/logo.png"
+import { ReactComponent as Logo } from "../assets/svg/logo.svg"
 import LoginForm from "../components/forms/login/LoginForm"
 const LoginPage = () => {
-	return (
-		<div
-			className="app__page-ctn"
-			style={{
-				paddingTop: 20,
-				alignItems: "center",
-				maxWidth: "unset",
-				width: "100%",
-				gap: 20,
-			}}
-		>
-			<img
-				src={logo}
-				alt="Logotipo de super ecónomico"
-				className="login__img"
-				style={{
-					width: "100%",
-					maxWidth: "200px",
-					margin: "0 auto",
-				}}
-			/>
-			<LoginForm />
-		</div>
-	)
+  return (
+    <div
+      className="app__page-ctn"
+      style={{
+        paddingTop: 20,
+        alignItems: "center",
+        maxWidth: "unset",
+        width: "100%",
+        gap: 20,
+      }}
+    >
+      <Logo height="100" />
+      <LoginForm />
+    </div>
+  )
 }
 
 export default LoginPage

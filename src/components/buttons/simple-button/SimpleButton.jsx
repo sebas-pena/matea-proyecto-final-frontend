@@ -7,18 +7,25 @@ const SimpleButton = ({
   children,
   height = 30,
   onClick,
+  width = "unset",
   asLink,
   to,
   paddingX = 10,
+  mb,
+  mt,
 }) => {
   const buttonStyle = {
     height,
     fontSize,
     padding: `0 ${paddingX}px`,
+    width,
   }
+  mb && (buttonStyle.marginBottom = mb)
+  mt && (buttonStyle.marginTop = mt)
   const linkStyle = {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
   }
   return asLink ? (
     <Link
