@@ -1,12 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 import Router from './router/Router';
 import './App.css';
+import { StoreProvider } from './store/StoreProvider';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <StoreProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </StoreProvider>
   );
 }
 
