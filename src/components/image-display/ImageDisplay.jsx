@@ -8,6 +8,7 @@ const ImageDisplay = ({ images }) => {
 			<div className="image-display__gallery">
 				{images.map((imageUrl, index) => (
 					<img
+						key={imageUrl}
 						src={imageUrl}
 						className={index === imageOnDisplay ? "focus" : ""}
 						onClick={() => {
