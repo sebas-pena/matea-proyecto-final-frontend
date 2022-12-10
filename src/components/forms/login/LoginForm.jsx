@@ -54,7 +54,7 @@ const LoginForm = () => {
 
 
 			
-				<SimpleButton height={35}>Iniciar Sesión</SimpleButton>
+				<SimpleButton asLink to="/" height={35}>Iniciar Sesión</SimpleButton>
 
 			<div className="login-form__recovery">
 				<SimpleLink to="recovery" fontSize={14} color="#464646">

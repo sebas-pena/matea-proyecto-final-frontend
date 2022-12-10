@@ -1,0 +1,74 @@
+
+.Contenedor-Cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 60px;
+}
+
+.Detalles-Cart-Pedido{
+    border-bottom: 1px solid black;
+    height: 100px;
+}
+
+.Detalles-Cart{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.Detall-Cart{
+    margin: 20px;
+}
+
+.Titulo-Cart{
+    border-bottom: 1px solid black;
+}
+
+
+/* Fin de Detalles del Pedido */
+
+
+
+/* Esto es la parte de Pago*/
+
+
+.Contenedor-Pedido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(228, 228, 228);
+}
+
+.Detalles-Pedido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.Detalles-Pedido-Total{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top: 1px solid rgb(0, 0, 0);
+    margin: 10px;
+    font-size: 15px;
+}
+
+.Detall-Pedido{
+    margin: 20px 0;
+}
+
+.Titulo-Pedido{
+    border-bottom: 1px solid black;
+    margin: 14px;
+}
+
+.Boton-Pagar{
+    background-color: black;
+    color: aliceblue;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 15px 0 15px 0;    
+}
