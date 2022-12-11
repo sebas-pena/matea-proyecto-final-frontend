@@ -35,6 +35,7 @@
   border-radius: 15px;
   background-color: #f8f8f8;
 }
+
 .navbar__search-input::placeholder{
   color: #99999b;
 }
@@ -42,6 +43,24 @@
 .navbar__search-input:focus{
   outline: none;
 }
+
 .navbar__search-input::placeholder{
   padding-left: 2px;
+}
+
+.navbar__cart-btn{
+  position: relative;
+}
+.navbar__cart-count{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  place-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 10000px;
+  font-size: 10px;
+  background-color: #e91e63;
+  color: #fff;
 }

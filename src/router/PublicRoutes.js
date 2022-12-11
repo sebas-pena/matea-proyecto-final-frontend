@@ -14,7 +14,6 @@ const PublicRoutes = () => {
       <Route path="login" element={<LoginPage />} />
       <Route path="sing-in" element={<SingIn />} />
       <Route path="product/:id" element={<ProductPage />} />
-      <Route path="category/:id" element={<ProductPage />} />
       <Route path="create-product" element={<CreateProductsPage />} />
       <Route path="search" element={<SearchPage />} />
     </Routes>

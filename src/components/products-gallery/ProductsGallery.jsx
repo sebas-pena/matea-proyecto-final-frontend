@@ -17,7 +17,6 @@ const ProductsGallery = ({ category, sale, title }) => {
 			})
 			.then((data) => {
 				setProducts(data.products)
-				console.log(data.products)
 			})
 			.catch((e) => console.log(e))
 	}, [])

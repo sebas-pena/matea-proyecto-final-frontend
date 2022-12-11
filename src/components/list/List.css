@@ -7,7 +7,6 @@
 .list{
   display: flex;
   align-items: center;
-  overflow: auto;
   width: 100%;
   gap: 10px;
 }
@@ -17,7 +16,9 @@
   display: flex;
   gap: 30px;
   width: 100%;
+  overflow: hidden;
 }
+
 
 .list > button {
   opacity: 0;
@@ -25,4 +26,21 @@
 
 .list:hover > button {
   opacity: 1;
+}
+
+@media only screen and (hover: none) and (pointer: coarse){
+
+  .list__ctn{
+    overflow: auto;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  } 
+  
+  .list__ctn::-webkit-scrollbar {
+    display: none;
+  }
+
+  .list > button {
+    display: none;
+  }
 }

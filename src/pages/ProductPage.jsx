@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import { useState, useEffect } from "react"
 import { useLocation, useParams } from "react-router-dom"
 import SimpleButton from "../components/buttons/simple-button/SimpleButton"
@@ -9,12 +10,13 @@ import NavBar from "../components/navbar/NavBar"
 import ProductsGallery from "../components/products-gallery/ProductsGallery"
 import StyledText from "../components/StyledText"
 import Wrapper from "../components/Wrapper"
+import { StoreContext } from "../store/StoreProvider"
 
 import "./ProductPage.css"
 const ProductPage = () => {
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
-	console.log(id)
+	const { store, dispatch } = useContext(StoreContext)
 	useEffect(() => {
 		setProduct({})
 		setTimeout(() => {
@@ -92,6 +94,32 @@ const ProductPage = () => {
 				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
 		},
 	]
+	const handleAddToCart = () => {
+		const { user, token, cart } = store
+		if (user) {
+			fetch("http://localhost:5000/api/cart", {
+				headers: {
+					authorization: `Bearer ${token}`,
+					"content-type": "application/json",
+				},
+				method: "PATCH",
+				body: JSON.stringify({
+					products: [...cart.map((product) => product._id), id],
+				}),
+			})
+				.then((res) => {
+					return res.json().then((data) => {
+						if (res.ok) return data
+						else Promise.reject(data)
+					})
+				})
+				.then((data) => {
+					dispatch({ type: "SET_CART", payload: data.products })
+					console.log(data)
+				})
+				.catch(console.log)
+		}
+	}
 
 	const { images, title, price, sale, currency, specs, category } = product
 	return (
@@ -131,8 +159,9 @@ const ProductPage = () => {
 								</StyledText>
 							</div>
 						</div>
-
-						<SimpleButton height={40}>Añadir al carrito</SimpleButton>
+						<SimpleButton height={40} onClick={handleAddToCart}>
+							Añadir al carrito
+						</SimpleButton>
 					</div>
 				</div>
 				<StyledText size={28} weight="500">
