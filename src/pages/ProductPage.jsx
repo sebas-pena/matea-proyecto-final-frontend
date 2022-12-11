@@ -37,63 +37,7 @@ const ProductPage = () => {
 			})
 			.catch(console.log)
 	}, [id])
-	const products = [
-		{
-			title: "Vermouth Blanco Martini 1 L",
-			brand: "Martini",
-			price: 369,
-			currency: "$",
-			sale: 6,
-			imgUrl:
-				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
-		},
-		{
-			title: "Vermouth Blanco Martini 1 L",
-			brand: "Martini",
-			price: 369,
-			currency: "$",
-			sale: 6,
-			promo: [{ pay: 1, get: 2 }],
-			imgUrl:
-				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
-		},
-		{
-			title: "Vermouth Blanco Martini 1 L",
-			brand: "Martini",
-			price: 369,
-			currency: "$",
-			sale: null,
-			promo: [
-				{ pay: 1, get: 2 },
-				{ pay: 2, get: 3 },
-			],
-			imgUrl:
-				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
-		},
-		{
-			title: "Vermouth Blanco Martini 1 L",
-			brand: "Martini",
-			price: 369,
-			currency: "$",
-			sale: 6,
-			promo: [
-				{ pay: 1, get: 2 },
-				{ pay: 2, get: 3 },
-			],
-			imgUrl:
-				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
-		},
-		{
-			title: "Vermouth Blanco Martini 1 L",
-			brand: "Martini",
-			price: 369,
-			currency: "$",
-			sale: null,
-			promo: [],
-			imgUrl:
-				"https://tatauy.vteximg.com.br/arquivos/ids/232854-600-600/Vermouth-Blanco-Martini-1-Lt-Vermouth-Blanco-Martini-1Lt-1-894.jpg?v=637738942433500000",
-		},
-	]
+	
 	const handleAddToCart = () => {
 		const { user, token, cart } = store
 		if (user) {
@@ -104,7 +48,7 @@ const ProductPage = () => {
 				},
 				method: "PATCH",
 				body: JSON.stringify({
-					products: [...cart.map((product) => product._id), id],
+					productId: id
 				}),
 			})
 				.then((res) => {
@@ -187,11 +131,7 @@ const ProductPage = () => {
 							</div>
 						))}
 				</div>
-				<List title="Otros visitantes también compraron">
-					{products.map((product, i) => (
-						<ProductCard key={i} {...product} />
-					))}
-				</List>
+				<ProductsGallery title="Ofertas" sale />
 				{category && (
 					<ProductsGallery title="Productos similares" category={category} />
 				)}
