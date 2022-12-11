@@ -76,16 +76,6 @@
   font-weight: 500;
 }
 
-.product-card__btn-ctn{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5px;
-}
-
-.product-card__quantity{
-  height: 100%;
-  flex: 1;
-  display: grid;
-  place-content: center;
-  line-height: 1;
+.product-car__currency{
+  margin-right: 6px;
 }
