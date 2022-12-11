@@ -6,6 +6,7 @@ import SimpleButton from "../buttons/simple-button/SimpleButton"
 import { useContext } from "react"
 import { StoreContext } from "../../store/StoreProvider"
 import { useNavigate, useParams, useSearchParams } from "react-router-dom"
+import paramsToObject from "../../helpers/paramsToObject"
 
 const NavBar = () => {
 	const { store, dispatch } = useContext(StoreContext)
@@ -19,10 +20,17 @@ const NavBar = () => {
 	}
 	const handleSearch = (e) => {
 		e.preventDefault()
-		setSearchParams((prev) => {
-			const category = prev.get("category")
-			return `${category ? `category=${category}&` : ""}q=${search}`
-		})
+		if (window.location.pathname != "/search") {
+			navigate(`/search?q=${search}&page=1`)
+		} else {
+			setSearchParams((prev) => {
+				const entries = prev.entries()
+				const params = paramsToObject(entries)
+				params.q = search
+				params.page = 1
+				return params
+			})
+		}
 	}
 
 	return (

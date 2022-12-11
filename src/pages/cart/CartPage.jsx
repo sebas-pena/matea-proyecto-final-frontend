@@ -45,10 +45,10 @@ const CartPage = () => {
 												<div className="cart__product-details">
 													<p className="title">{product.product.title}</p>
 													<p className="detail">
-														Marca: <span>MARCA 1234</span>
+														Marca: <span>{product.product.brand}</span>
 													</p>
 													<p className="detail">
-														Modelo: <span>MODELO 1234</span>
+														Modelo: <span>{product.product.model}</span>
 													</p>
 												</div>
 											</div>
