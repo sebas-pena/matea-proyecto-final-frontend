@@ -6,37 +6,40 @@ import SimpleButton from "../../buttons/simple-button/SimpleButton"
 import parseJWT from "../../../helpers/handleJWT"
 import "./SingInForm.css"
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 const SingInForm = () => {
-	const { dispatch } = useContext(StoreContext)
-
+	const { dispatch, store } = useContext(StoreContext)
 	const usernameRef = useRef()
 	const emailnameRef = useRef()
 	const passwordRef = useRef()
-	const directionRef = useRef()
 
 	const navigate = useNavigate()
+	useEffect(() => {
+		localStorage.removeItem("token")
+	}, [])
 
 	const onSubmit = (e) => {
 		e.preventDefault()
 		const username = usernameRef.current.value
 		const email = emailnameRef.current.value
 		const password = passwordRef.current.value
-		const direction = directionRef.current.value
+
 		fetch("http://localhost:5000/api/auth/singup", {
 			method: "POST",
 			headers: { "content-type": "application/json" },
 			//solicitamos email y password del ref
-			body: JSON.stringify({ username, email, password, direction }),
+			body: JSON.stringify({ username, email, password }),
 		})
 			//.then(response => response.json())
 			.then(function (res) {
 				if (res.ok) return res.json()
 				else return Promise.reject()
 			})
-			.then(function (data) {
-				const { user } = parseJWT(data.access_token)
+			.then(function ({ access_token }) {
+				const { user } = parseJWT(access_token)
+				localStorage.setItem("token", access_token)
 				dispatch({ type: "SET_USER", payload: user })
-				dispatch({ type: "SET_TOKEN", payload: data.access_token })
+				dispatch({ type: "SET_TOKEN", payload: access_token })
 				navigate("/")
 			})
 			.catch(console.log)
@@ -92,21 +95,6 @@ const SingInForm = () => {
 								type="password"
 								name="password"
 								ref={passwordRef}
-							/>
-						</div>
-					</div>
-
-					<div className="section">
-						<label htmlFor="direction" className="Label">
-							Dirección
-						</label>
-						<div className="field">
-							<input
-								className="Input"
-								id="direction"
-								type="text"
-								name="direction"
-								ref={directionRef}
 							/>
 						</div>
 					</div>

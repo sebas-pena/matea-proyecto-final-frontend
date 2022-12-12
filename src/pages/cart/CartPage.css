@@ -59,6 +59,8 @@
 }
 
 .cart__product-details .title{
+  color: #333;
+  text-decoration: none;
   font-size: 16px;
 }
 
@@ -70,6 +72,24 @@
 .cart__product-details .detail span{
   font-weight: 400;
 }
+
+.cart__product-buttons{
+  display: flex;
+}
+
+.cart__product-buttons > *{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.cart__product-buttons > p{
+  width: 50px;
+
+}
+
 
 .cart__product-currency{
   font-weight: 400;
@@ -85,8 +105,10 @@
   border-bottom: 1px solid black;
 }
 
-
-
+.cart__empty-text{
+  margin: 20px 0;
+  text-align: center;
+}
 
 .cart__link-home{
   display: inline-block;
@@ -107,15 +129,58 @@
   flex-direction: column;
   background-color: rgb(228, 228, 228);
   height: max-content;
+  width: 300px;
+}
 
+.Detalles-Pedido{
+  padding: 14px;
+}
+
+.cart__total-items{
+  margin-left: 10px;
+}
+
+.cart_payment-method h3{
+  margin: 10px 0
+}
+
+.cart__payment-options{
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  font-size: 15px;
+}
+
+.cart__payment-options option{
+  width: 100%;
 }
 
 .Detalles-Pedido-Total {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding: 14px;
   border-top: 1px solid rgb(0, 0, 0);
-  margin: 10px;
   font-size: 15px;
+}
+
+.Detalles-Pedido-Total p {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.Detalles-Pedido-Total p span{
+  font-weight: 400;
+}
+
+.Detalles-Pedido-Total p span.currency{
+  margin-right: 6px;
+}
+
+.Detalles-Pedido-Total p.total {
+  font-weight: 500;
+  font-size: 22px;
 }
 
 .Titulo-Pedido {
@@ -127,7 +192,7 @@
   background-color: black;
   color: aliceblue;
   font-size: 25px;
+  margin-top: 20px;
   padding: 10px;
   border-radius: 6px;
-  margin: 15px 0 15px 0;
 }

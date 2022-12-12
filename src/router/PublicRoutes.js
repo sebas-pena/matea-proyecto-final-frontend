@@ -7,6 +7,7 @@ import ProductPage from "../pages/ProductPage"
 import CreateProductsPage from "../pages/CreateProductsPage"
 import SearchPage from "../pages/search/SearchPage"
 import CartPage from "../pages/cart/CartPage"
+import ProfilePage from "../pages/profile/ProfilePage"
 
 const PublicRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const PublicRoutes = () => {
       <Route path="create-product" element={<CreateProductsPage />} />
       <Route path="search" element={<SearchPage />} />
       <Route path="cart" element={<CartPage />} />
+      <Route path="profile" element={<ProfilePage />} />
     </Routes>
   )
 }

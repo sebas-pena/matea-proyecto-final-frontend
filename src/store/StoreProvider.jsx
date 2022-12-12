@@ -9,8 +9,7 @@ export const StoreProvider = ({ children }) => {
 	const parsedToken = token && parseJWT(token)
 	const initialStore = {
 		token,
-		user: parsedToken,
-		isLoading: true,
+		user: parsedToken?.user,
 		cart: [],
 	}
 
@@ -31,7 +30,6 @@ export const StoreProvider = ({ children }) => {
 				})
 				.then((data) => {
 					dispatch({ type: "SET_CART", payload: data.products })
-					dispatch({ type: "SET_IS_LOADING", payload: false })
 				})
 				.catch(console.log)
 		}

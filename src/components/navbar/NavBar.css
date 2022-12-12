@@ -64,3 +64,8 @@
   background-color: #e91e63;
   color: #fff;
 }
+.navbar__profile-img{
+  height: 20px;
+  border-radius: 100px;
+  margin-right: 6px;
+}

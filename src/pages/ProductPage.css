@@ -31,6 +31,10 @@
   padding-bottom: 20px;
 }
 
+.product__description{
+  color: #333;
+}
+
 .product-page__specs-ctn{
   display: grid;
   grid-template-columns: repeat( auto-fit, 500px );

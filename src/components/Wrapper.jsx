@@ -11,6 +11,7 @@ const Wrapper = ({
 	margin,
 	gap,
 	wrap = "unset",
+	padding = "unset",
 }) => {
 	const styles = {
 		display: "flex",
@@ -23,6 +24,7 @@ const Wrapper = ({
 		maxWidth,
 		margin,
 		gap,
+		padding,
 	}
 	return <div style={styles}>{children}</div>
 }

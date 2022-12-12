@@ -7,6 +7,7 @@ import SimpleButton from "../../buttons/simple-button/SimpleButton"
 import parseJWT from "../../../helpers/handleJWT"
 import SimpleLink from "../../links/simple-link/SimpleLink"
 import "./LoginForm.css"
+import { useEffect } from "react"
 
 const LoginForm = () => {
 	const { dispatch } = useContext(StoreContext)
@@ -14,7 +15,9 @@ const LoginForm = () => {
 	const navigate = useNavigate()
 	const emailnameRef = useRef()
 	const passwordRef = useRef()
-
+	useEffect(() => {
+		localStorage.removeItem("token")
+	}, [])
 	const onSubmit = (e) => {
 		e.preventDefault()
 		const email = emailnameRef.current.value

@@ -33,11 +33,10 @@ const ProductPage = () => {
 			})
 			.then((product) => {
 				setProduct(product)
-				console.log(product)
 			})
 			.catch(console.log)
 	}, [id])
-	
+
 	const handleAddToCart = () => {
 		const { user, token, cart } = store
 		if (user) {
@@ -46,9 +45,9 @@ const ProductPage = () => {
 					authorization: `Bearer ${token}`,
 					"content-type": "application/json",
 				},
-				method: "PATCH",
+				method: "POST",
 				body: JSON.stringify({
-					productId: id
+					productId: id,
 				}),
 			})
 				.then((res) => {
@@ -59,13 +58,13 @@ const ProductPage = () => {
 				})
 				.then((data) => {
 					dispatch({ type: "SET_CART", payload: data.products })
-					console.log(data)
 				})
 				.catch(console.log)
 		}
 	}
 
-	const { images, title, price, sale, currency, specs, category } = product
+	const { images, title, price, sale, currency, specs, category, description } =
+		product
 	return (
 		<>
 			<NavBar />
@@ -76,6 +75,7 @@ const ProductPage = () => {
 				maxWidth={1100}
 				margin="auto"
 				gap="30px"
+				padding="20px"
 			>
 				<div className="product-page__product-info-ctn">
 					<div className="product-page__product-gallery-ctn">
@@ -108,6 +108,14 @@ const ProductPage = () => {
 						</SimpleButton>
 					</div>
 				</div>
+				{description && (
+					<>
+						<StyledText size={28} weight="500">
+							Información del producto
+						</StyledText>
+						<p className="product__description">{description}</p>
+					</>
+				)}
 				<StyledText size={28} weight="500">
 					Información del producto
 				</StyledText>

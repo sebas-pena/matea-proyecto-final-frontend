@@ -12,6 +12,7 @@ export default (state, action) => {
       return {
         token: null,
         user: null,
+        cart: [],
       }
     default:
       return state

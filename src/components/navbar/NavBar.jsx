@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ReactComponent as CartIcon } from "../../assets/svg/shopping-cart.svg"
 import { ReactComponent as Logo } from "../../assets/svg/logo.svg"
+import { ReactComponent as ProfileIcon } from "../../assets/svg/profile-box.svg"
 import "./NavBar.css"
 import SimpleButton from "../buttons/simple-button/SimpleButton"
 import { useContext } from "react"
@@ -12,9 +13,10 @@ const NavBar = () => {
 	const { store, dispatch } = useContext(StoreContext)
 	const [search, setSearch] = useState("")
 	const [searchParams, setSearchParams] = useSearchParams()
-	const user = store.user
+	const { cart, user } = store
 	const navigate = useNavigate()
 	const handleLogout = () => {
+		localStorage.removeItem("token")
 		dispatch({ type: "LOGOUT" })
 		navigate("/login")
 	}
@@ -57,18 +59,26 @@ const NavBar = () => {
 						className="navbar__cart-btn"
 					>
 						<CartIcon fill="#2196f3" height={29} className="navbar__cart" />
-						{store.cart.length && (
-							<div className="navbar__cart-count">{store.cart.length}</div>
+						{cart.length && (
+							<div className="navbar__cart-count">{cart.length}</div>
 						)}
 					</SimpleButton>
 					{user ? (
-						<SimpleButton onClick={handleLogout} height={35} paddingX={15}>
-							Cerrar Sesión
-						</SimpleButton>
+						<>
+							<SimpleButton asLink to="/profile" height={35} paddingX={15}>
+								<img className="navbar__profile-img" src={user.profileImage} />
+								{user.username}
+							</SimpleButton>
+							<SimpleButton onClick={handleLogout} height={35} paddingX={15}>
+								Cerrar Sesión
+							</SimpleButton>
+						</>
 					) : (
-						<SimpleButton asLink to="/login" height={35} paddingX={15}>
-							Ingresar
-						</SimpleButton>
+						<>
+							<SimpleButton asLink to="/login" height={35} paddingX={15}>
+								Ingresar
+							</SimpleButton>
+						</>
 					)}
 				</div>
 			</div>
