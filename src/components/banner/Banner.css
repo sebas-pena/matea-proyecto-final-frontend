@@ -3,7 +3,11 @@
   gap: 10px;
 }
 
-.banner > img {
+.banner > a {
   flex: 1;
   width: 0;
+}
+
+.banner > a > img{
+  width: 100%;
 }

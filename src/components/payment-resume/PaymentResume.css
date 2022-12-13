@@ -1,0 +1,73 @@
+.payment-resume__ctn{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(228, 228, 228);
+  height: max-content;
+  width: 300px;
+}
+
+.payment-resume__title{
+  font-size: 26px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  padding: 14px;
+}
+
+.payment-resume__section{
+  padding: 14px;
+}
+
+.payment-resume__section span{
+  margin-left: 6px;
+}
+
+.payment-resume__section > h3:nth-child(2),
+.payment-resume__section > label > h3{
+  margin: 10px 0;
+}
+
+.payment-resume__method-fixed{
+  margin: 4px 0;
+  width: 100%;
+  font-size: 15px;
+  background-color: #fff;
+  padding: 10px 10px;
+  border-radius: 4px;
+}
+
+.payment-resume__options{
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  font-size: 15px;
+}
+
+.payment-resume__options option{
+  width: 100%;
+}
+
+.payment-resume__section-total{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid rgb(0, 0, 0);
+  font-size: 15px;
+}
+
+.payment-resume__section-total p{
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.payment-resume__section-total p.total{
+  font-size: 22px;
+}
+
+.payment-resume__section-total p span.currency {
+  margin-right: 6px;
+}
+.payment-resume__section-total p span {
+  font-weight: 400;
+}

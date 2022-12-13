@@ -144,17 +144,7 @@
   margin: 10px 0
 }
 
-.cart__payment-options{
-  width: 100%;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #cfcfcf;
-  font-size: 15px;
-}
 
-.cart__payment-options option{
-  width: 100%;
-}
 
 .Detalles-Pedido-Total {
   display: flex;

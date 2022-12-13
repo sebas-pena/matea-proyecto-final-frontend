@@ -2,21 +2,25 @@ import { useContext } from "react"
 import { useState, useEffect } from "react"
 import { useLocation, useParams } from "react-router-dom"
 import SimpleButton from "../components/buttons/simple-button/SimpleButton"
-import ProductCard from "../components/cards/product-card/ProductCard"
 import Footer from "../components/footer/Footer"
 import ImageDisplay from "../components/image-display/ImageDisplay"
-import List from "../components/list/List"
 import NavBar from "../components/navbar/NavBar"
 import ProductsGallery from "../components/products-gallery/ProductsGallery"
+import Spinner from "../components/Spinner"
 import StyledText from "../components/StyledText"
 import Wrapper from "../components/Wrapper"
 import { StoreContext } from "../store/StoreProvider"
+import Alert from "./alert/Alert"
 
 import "./ProductPage.css"
 const ProductPage = () => {
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
+	const [isLoading, setIsLoading] = useState(false)
+	const [showAlert, setShowAlert] = useState(false)
 	const { store, dispatch } = useContext(StoreContext)
+	const { user, token, cart } = store
+
 	useEffect(() => {
 		setProduct({})
 		setTimeout(() => {
@@ -38,8 +42,9 @@ const ProductPage = () => {
 	}, [id])
 
 	const handleAddToCart = () => {
-		const { user, token, cart } = store
+		if (isLoading) return
 		if (user) {
+			setIsLoading(true)
 			fetch("http://localhost:5000/api/cart", {
 				headers: {
 					authorization: `Bearer ${token}`,
@@ -60,6 +65,10 @@ const ProductPage = () => {
 					dispatch({ type: "SET_CART", payload: data.products })
 				})
 				.catch(console.log)
+				.finally(() => {
+					setIsLoading(false)
+					setShowAlert(true)
+				})
 		}
 	}
 
@@ -67,6 +76,11 @@ const ProductPage = () => {
 		product
 	return (
 		<>
+			{showAlert && (
+				<Alert setShowAlert={setShowAlert}>
+					<span>Producto añadido con exito!</span>
+				</Alert>
+			)}
 			<NavBar />
 			<Wrapper
 				vertical
@@ -145,6 +159,7 @@ const ProductPage = () => {
 				)}
 			</Wrapper>
 			<Footer />
+			{isLoading && <Spinner />}
 		</>
 	)
 }

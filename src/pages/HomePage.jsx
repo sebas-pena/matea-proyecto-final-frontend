@@ -4,7 +4,7 @@ import CategoryList from "../components/CategoryList"
 import Footer from "../components/footer/Footer"
 import NavBar from "../components/navbar/NavBar"
 import ProductsGallery from "../components/products-gallery/ProductsGallery"
-import Slider from "../components/slider/Slider"
+import Carrousel from "../components/carrousel/Carrousel"
 import Wrapper from "../components/Wrapper"
 
 const HomePage = () => {
@@ -19,32 +19,24 @@ const HomePage = () => {
 				margin="auto"
 				gap="30px"
 			>
-				<Slider />
+				<Carrousel />
 				<CategoryList />
-				<Banner>
-					<img
-						src="https://static-ti-vm1.tiendainglesa.com.uy/imagenes/Banners/Banner4666_177401ec-3199-437b-87d0-522012d7f710.jpeg"
-						alt="banner-1"
-					/>
-					<img
-						src="https://static-ti-vm1.tiendainglesa.com.uy/imagenes/Banners/Banner4666_177401ec-3199-437b-87d0-522012d7f710.jpeg"
-						alt="banner-2"
-					/>
-				</Banner>
+				<Banner
+					items={[
+						{
+							imgUrl:
+								"https://media.discordapp.net/attachments/1052097507255144511/1052097570270359682/image.png",
+							productId: "63981dbace7df11d4e56bada",
+						},
+						{
+							imgUrl:
+								"https://cdn.discordapp.com/attachments/1052097507255144511/1052101268195262505/image.png",
+							productId: "63981fcdce7df11d4e56bae3",
+						},
+					]}
+				/>
 				<ProductsGallery sale title="Ofertas" />
-				<Banner>
-					<img
-						src="https://tatauy.vteximg.com.br/arquivos/ids/519314/BombazosSep-1240x200-BebidasHome_.png?v=637992102984000000"
-						alt="2x1"
-					/>
-				</Banner>
 				<ProductsGallery title="Perifericos" category="peripheral" />
-				<Banner>
-					<img
-						src="https://tatauy.vteximg.com.br/arquivos/ids/304214/Banner-Oportunidad-Hoy-22-02-2022-1240x200.png?v=637811497968830000"
-						alt="2x1"
-					/>
-				</Banner>
 				<ProductsGallery title="Monitores" category="monitor" />
 			</Wrapper>
 			<Footer />
