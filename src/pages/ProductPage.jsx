@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useState, useEffect } from "react"
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import SimpleButton from "../components/buttons/simple-button/SimpleButton"
 import Footer from "../components/footer/Footer"
 import ImageDisplay from "../components/image-display/ImageDisplay"
@@ -10,17 +10,20 @@ import Spinner from "../components/Spinner"
 import StyledText from "../components/StyledText"
 import Wrapper from "../components/Wrapper"
 import { StoreContext } from "../store/StoreProvider"
-import Alert from "./alert/Alert"
+import Alert from "../components/alert/Alert"
 
 import "./ProductPage.css"
 const ProductPage = () => {
 	const { id } = useParams()
 	const [product, setProduct] = useState({})
 	const [isLoading, setIsLoading] = useState(false)
-	const [showAlert, setShowAlert] = useState(false)
+	const [alert, setAlert] = useState({
+		show: false,
+		message: "",
+	})
 	const { store, dispatch } = useContext(StoreContext)
 	const { user, token, cart } = store
-
+	const navigate = useNavigate()
 	useEffect(() => {
 		setProduct({})
 		setTimeout(() => {
@@ -67,8 +70,10 @@ const ProductPage = () => {
 				.catch(console.log)
 				.finally(() => {
 					setIsLoading(false)
-					setShowAlert(true)
+					setAlert({ show: true, message: "Producto añadido con exito!" })
 				})
+		} else {
+			navigate("/login")
 		}
 	}
 
@@ -76,9 +81,9 @@ const ProductPage = () => {
 		product
 	return (
 		<>
-			{showAlert && (
-				<Alert setShowAlert={setShowAlert}>
-					<span>Producto añadido con exito!</span>
+			{alert.show && (
+				<Alert setShowAlert={(value) => setAlert({ show: value, message: "" })}>
+					<p>{alert.message}</p>
 				</Alert>
 			)}
 			<NavBar />

@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { StoreContext } from "../../store/StoreProvider"
 import SimpleButton from "../buttons/simple-button/SimpleButton"
 import PaymentResume from "../payment-resume/PaymentResume"
+import Spinner from "../Spinner"
 import "./PaymentModal.css"
 const PaymentModal = ({
 	method,
@@ -11,14 +12,45 @@ const PaymentModal = ({
 	total,
 	totalItems,
 	setShowModal,
+	setAlert,
 }) => {
 	const { store, dispatch } = useContext(StoreContext)
-	const { user, cart } = store
-	const [inputValues, setInputValues] = useState({
-		...user,
-	})
-	if (user.username && user)
-		return (
+	const [isLoading, setIsLoading] = useState(false)
+	const { token, user } = store
+
+	const confirmBuy = () => {
+		setIsLoading(true)
+		fetch("http://localhost:5000/api/cart", {
+			method: "PATCH",
+			headers: {
+				"content-type": "application/json",
+				authorization: `Bearer ${token}`,
+			},
+			body: JSON.stringify([]),
+		})
+			.then((res) => {
+				return res.json().then((data) => {
+					if (res.ok) return data
+					else return Promise.reject(data)
+				})
+			})
+			.then((data) => {
+				console.log(data)
+				dispatch({ type: "SET_CART", payload: [] })
+				setAlert({ show: true, message: "Compra realizada con exito!" })
+				setShowModal(false)
+			})
+			.catch((err) => {
+				console.log(err)
+				setAlert({ show: true, message: "Error al procesar la compra." })
+			})
+			.finally(() => {
+				setIsLoading(false)
+			})
+	}
+
+	return (
+		<>
 			<div
 				className="payment-modal__ctn"
 				onClick={(e) => {
@@ -41,7 +73,7 @@ const PaymentModal = ({
 										alt="payment-qr"
 									/>
 								</>
-							) : method == 2 ? (
+							) : method == 2 || method == 4 ? (
 								<>
 									<label>
 										<p>Nombre del proietario</p>
@@ -59,16 +91,28 @@ const PaymentModal = ({
 									</div>
 									<label>
 										<p>CVV</p>
-										<input />
+										<input className="cvv" />
 									</label>
 								</>
-							) : method == 3 ? (
-								<></>
 							) : (
-								<></>
+								<>
+									<label>
+										<p>Propietario de la cuenta</p>
+										<input className="cvv" />
+									</label>
+									<label>
+										<p>Numero de cuenta</p>
+										<input className="cvv" />
+									</label>
+								</>
 							)}
 						</div>
-						<SimpleButton width="100%" height="32px" radius="0">
+						<SimpleButton
+							width="100%"
+							height="32px"
+							radius="0"
+							onClick={confirmBuy}
+						>
 							Confirmar Pago
 						</SimpleButton>
 					</div>
@@ -81,7 +125,9 @@ const PaymentModal = ({
 					/>
 				</div>
 			</div>
-		)
+			{isLoading && <Spinner />}
+		</>
+	)
 }
 
 export default PaymentModal

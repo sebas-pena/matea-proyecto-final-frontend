@@ -11,15 +11,29 @@ import { resizeImageFile } from "../../helpers/resizeImage"
 import imageFileToUrl from "../../helpers/imageFileToUrl"
 import Spinner from "../../components/Spinner"
 import parseJWT from "../../helpers/handleJWT"
+import { useNavigate } from "react-router-dom"
 
 const ProfilePage = () => {
 	const { store, dispatch } = useContext(StoreContext)
+	const navigate = useNavigate()
 	const { user, token } = store
-	const [values, setValues] = useState(user)
+	const [values, setValues] = useState(
+		user || {
+			username: "",
+			email: "",
+			phone: "",
+			direction: "",
+			profileImage: "",
+		}
+	)
 	const [isLoading, setIsLoading] = useState(false)
-	const [profileUrl, setProfileUrl] = useState(user.profileImage)
+	const [profileUrl, setProfileUrl] = useState(user?.profileImage)
 	const formRef = useRef()
 	const { username, email, phone, direction, profileImage } = values
+
+	useEffect(() => {
+		if (!user) navigate("/login")
+	}, [])
 
 	useEffect(() => {
 		if (typeof profileImage === "object") {
