@@ -13,6 +13,7 @@ const SimpleButton = ({
 	paddingX = 10,
 	mb,
 	mt,
+	radius,
 	className,
 }) => {
 	const buttonStyle = {
@@ -20,6 +21,7 @@ const SimpleButton = ({
 		fontSize,
 		padding: `0 ${paddingX}px`,
 		width,
+		borderRadius: radius,
 	}
 	mb && (buttonStyle.marginBottom = mb)
 	mt && (buttonStyle.marginTop = mt)
